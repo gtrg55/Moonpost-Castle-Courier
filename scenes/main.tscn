@@ -1,0 +1,26 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/endless_main.gd" id="1_main"]
+[ext_resource type="PackedScene" path="res://scenes/world/environment.tscn" id="2_environment"]
+[ext_resource type="PackedScene" path="res://scenes/characters/owl/owl.tscn" id="3_owl"]
+[ext_resource type="PackedScene" path="res://scenes/world/world_streamer.tscn" id="4_streamer"]
+[ext_resource type="PackedScene" path="res://scenes/camera/flight_camera.tscn" id="5_camera"]
+[ext_resource type="PackedScene" path="res://scenes/effects/speed_blur.tscn" id="6_blur"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="7_hud"]
+
+[node name="Moonpost" type="Node3D"]
+script = ExtResource("1_main")
+
+[node name="Environment" parent="." instance=ExtResource("2_environment")]
+
+[node name="CourierOwl" parent="." instance=ExtResource("3_owl")]
+position = Vector3(0, 7, 72)
+
+[node name="ProceduralWorldStreamer" parent="." instance=ExtResource("4_streamer")]
+
+[node name="FlightCamera" parent="." instance=ExtResource("5_camera")]
+position = Vector3(0, 10, 82)
+
+[node name="SpeedBlur" parent="." instance=ExtResource("6_blur")]
+
+[node name="HUD" parent="." instance=ExtResource("7_hud")]

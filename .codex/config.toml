@@ -1,0 +1,26 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+[mcp_servers.godot]
+command = "npx"
+args = ["-y", "@coding-solo/godot-mcp"]
+cwd = "."
+startup_timeout_sec = 30
+tool_timeout_sec = 120
+
+[mcp_servers.godot.env]
+GODOT_PATH = "/Applications/Godot 4.6.2.app/Contents/MacOS/Godot"
+DEBUG = "true"
+
+[mcp_servers.blender]
+command = "/opt/anaconda3/bin/uvx"
+args = ["--python", "3.11", "blender-mcp"]
+startup_timeout_sec = 60
+tool_timeout_sec = 120
+
+[mcp_servers.blender.env]
+UV_PYTHON_PREFERENCE = "only-managed"
+
+[mcp_servers.blockbench]
+url = "http://localhost:3000/bb-mcp"
+startup_timeout_sec = 10
+tool_timeout_sec = 120

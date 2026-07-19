@@ -1,0 +1,7 @@
+.godot/
+.DS_Store
+*.tmp
+*.translation
+export.cfg
+export_presets.cfg
+*.initial-backup

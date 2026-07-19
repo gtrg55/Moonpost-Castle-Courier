@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/owl_controller.gd" id="1_controller"]
+[ext_resource type="PackedScene" path="res://assets/blockbench/characters/player/owl/owl_body.glb" id="2_body"]
+[ext_resource type="PackedScene" path="res://assets/blockbench/characters/player/owl/owl_wing.glb" id="3_wing"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_owl"]
+radius = 0.72
+
+[node name="CourierOwl" type="CharacterBody3D"]
+script = ExtResource("1_controller")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_owl")
+
+[node name="OwlVisual" type="Node3D" parent="."]
+
+[node name="BlockbenchOwlBody" parent="OwlVisual" instance=ExtResource("2_body")]
+
+[node name="LeftWingPivot" type="Node3D" parent="OwlVisual"]
+position = Vector3(-0.48, 0.08, 0)
+
+[node name="BlockbenchLeftWing" parent="OwlVisual/LeftWingPivot" instance=ExtResource("3_wing")]
+
+[node name="RightWingPivot" type="Node3D" parent="OwlVisual"]
+position = Vector3(0.48, 0.08, 0)
+
+[node name="BlockbenchRightWing" parent="OwlVisual/RightWingPivot" instance=ExtResource("3_wing")]
+scale = Vector3(-1, 1, 1)
