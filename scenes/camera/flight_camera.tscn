@@ -3,5 +3,6 @@
 [ext_resource type="Script" path="res://scripts/flight_camera.gd" id="1_camera"]
 
 [node name="FlightCamera" type="Camera3D"]
+process_priority = 10
 current = true
 script = ExtResource("1_camera")

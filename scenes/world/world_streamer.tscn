@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://scripts/world_streamer.gd" id="1_streamer"]
 
 [node name="ProceduralWorldStreamer" type="Node3D"]
+physics_interpolation_mode = 1
 script = ExtResource("1_streamer")

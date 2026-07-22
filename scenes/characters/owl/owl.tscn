@@ -8,22 +8,29 @@
 radius = 0.72
 
 [node name="CourierOwl" type="CharacterBody3D"]
+physics_interpolation_mode = 1
+motion_mode = 1
+collision_mask = 0
 script = ExtResource("1_controller")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_owl")
 
-[node name="OwlVisual" type="Node3D" parent="."]
+[node name="PresentationAnchor" type="Node3D" parent="."]
+top_level = true
+physics_interpolation_mode = 2
 
-[node name="BlockbenchOwlBody" parent="OwlVisual" instance=ExtResource("2_body")]
+[node name="OwlVisual" type="Node3D" parent="PresentationAnchor"]
 
-[node name="LeftWingPivot" type="Node3D" parent="OwlVisual"]
+[node name="BlockbenchOwlBody" parent="PresentationAnchor/OwlVisual" instance=ExtResource("2_body")]
+
+[node name="LeftWingPivot" type="Node3D" parent="PresentationAnchor/OwlVisual"]
 position = Vector3(-0.48, 0.08, 0)
 
-[node name="BlockbenchLeftWing" parent="OwlVisual/LeftWingPivot" instance=ExtResource("3_wing")]
+[node name="BlockbenchLeftWing" parent="PresentationAnchor/OwlVisual/LeftWingPivot" instance=ExtResource("3_wing")]
 
-[node name="RightWingPivot" type="Node3D" parent="OwlVisual"]
+[node name="RightWingPivot" type="Node3D" parent="PresentationAnchor/OwlVisual"]
 position = Vector3(0.48, 0.08, 0)
 
-[node name="BlockbenchRightWing" parent="OwlVisual/RightWingPivot" instance=ExtResource("3_wing")]
+[node name="BlockbenchRightWing" parent="PresentationAnchor/OwlVisual/RightWingPivot" instance=ExtResource("3_wing")]
 scale = Vector3(-1, 1, 1)

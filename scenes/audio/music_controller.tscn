@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/music_controller.gd" id="1_music"]
+[ext_resource type="AudioStream" path="res://music/menu_music.mp3" id="2_menu"]
+[ext_resource type="AudioStream" path="res://music/game_music.mp3" id="3_game"]
+
+[node name="MusicController" type="Node"]
+process_mode = 3
+script = ExtResource("1_music")
+menu_stream = ExtResource("2_menu")
+game_stream = ExtResource("3_game")
+
+[node name="MenuPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+
+[node name="GamePlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3

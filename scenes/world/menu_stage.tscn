@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/blockbench/environment/menu/menu_twilight_tree_v2.glb" id="1_tree"]
+[ext_resource type="Script" path="res://scripts/menu_stage.gd" id="2_script"]
+[ext_resource type="PackedScene" path="res://assets/blockbench/environment/menu/menu_castle_gate.glb" id="3_castle"]
+
+[node name="MenuStage" type="Node3D"]
+visible = false
+script = ExtResource("2_script")
+
+[node name="RoadBackdrop" type="Node3D" parent="."]
+
+[node name="DistantCastle" parent="." instance=ExtResource("3_castle")]
+position = Vector3(0, 0, -6)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="PerchTree" parent="." instance=ExtResource("1_tree")]
+position = Vector3(13.5, 0, 49)
+scale = Vector3(1.24, 1.24, 1.24)
+
+[node name="PerchWarmLight" type="OmniLight3D" parent="."]
+position = Vector3(9.5, 8.5, 52.5)
+light_color = Color(1, 0.52, 0.28, 1)
+light_energy = 6.2
+omni_range = 15.0
+shadow_enabled = true
+
+[node name="PerchMoonRim" type="OmniLight3D" parent="."]
+position = Vector3(16.5, 13.0, 45.0)
+light_color = Color(0.42, 0.62, 1, 1)
+light_energy = 2.6
+omni_range = 18.0
+
+[node name="CastleGlow" type="OmniLight3D" parent="."]
+position = Vector3(0, 7, -4)
+light_color = Color(1, 0.47, 0.24, 1)
+light_energy = 6.5
+omni_range = 32.0
+shadow_enabled = true
+
+[node name="MoonFill" type="OmniLight3D" parent="."]
+position = Vector3(-15, 12, 18)
+light_color = Color(0.52, 0.62, 1, 1)
+light_energy = 2.4
+omni_range = 46.0
+
+[node name="MenuReflections" type="ReflectionProbe" parent="."]
+position = Vector3(0, 7, 23)
+size = Vector3(62, 25, 112)
+max_distance = 125.0
+intensity = 1.25
+box_projection = true
